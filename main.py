@@ -1,6 +1,9 @@
 import random
 from simanneal import Annealer
 import frequency_generator as f
+import keyboardArray as k
+
+
 
 freq_map = f.make_freq()
 alphabet = "abcdefghijklmnopqrstuvwxzy"
@@ -15,8 +18,8 @@ class KeyboardProblem(Annealer):
     def move(self):
         """Swaps two keys in the route."""
         #print("move")
-        a = random.randint(0, len(self.state) - 1)
-        b = random.randint(0, len(self.state) - 1)
+        a = random.randint(0, len(self.state)-1)
+        b = random.randint(0, len(self.state)-1)
         self.state[a], self.state[b] = self.state[b], self.state[a]
     def energy(self):
         #print("energy")
@@ -40,7 +43,7 @@ def generate_random_layout():
 
 def key_pair_cost(key_a, idx_a, key_b, idx_b):
     frequency = freq_map[1][str(key_a)+key_b]    #freq_map(key_a, key_b)
-    keying_time = 1 #key_map(idx_a, idx_b)
+    keying_time = k.keyDistances[idx_a][idx_b]
     return frequency * keying_time
 
 def cost(layout):
@@ -63,12 +66,9 @@ def main():
     init_state = generate_random_layout()
     print(init_state)
     tsp = KeyboardProblem(init_state)
-    print("a")
-    tsp.steps = 10000
-    print("b")
+    tsp.steps = 100000
     # since our state is just a list, slice is the fastest way to copy
     tsp.copy_strategy = "slice"
-    print("c")
     state, e = tsp.anneal()
     print(display_keyboard(state))
     print(e)

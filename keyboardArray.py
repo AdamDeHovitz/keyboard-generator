@@ -1,13 +1,12 @@
 
 
 keys = []
-for i in range(10)
-	keys[i] = 10
-for i in range(10, 19)
-	keys[i] = 20
-for i in range(19, 26)
-	keys[i] = 30
-
+for i in range(10):
+	keys.append(10)
+for i in range(10, 19):
+	keys.append(20)
+for i in range(19, 26):
+	keys.append(30)
 keys[0] += 1 #q
 keys[10] += 1 #a
 keys[19] += 1 #z
@@ -44,36 +43,36 @@ keys[18] += 7 #l
 
 keys[9] += 8 #p
 
-keyDistances = [][]
+keyDistances = [0]*26
 
-for i in range(26)
-
+for i in range(26):
+	keyDistances[i] = []
 	fingerI = keys[i] % 10
 	rowI = (keys[i] - fingerI) / 10
 
-	for j in range(26)
-
+	for j in range(26):
+		keyDistances[i].append(0)
 		fingerJ = keys[j] % 10
 		rowJ = (keys[j] - fingerJ) / 10
 
-		if i == j
+		if i == j:
 			#Same Key
 			keyDistances[i][j] = 0 
-		elif fingerI == fingerJ
+		elif fingerI == fingerJ:
 			#Same finger used to type these keys
-			if (rowI == 1 and rowJ == 3) or (rowI == 3 and rowJ == 1)
+			if (rowI == 1 and rowJ == 3) or (rowI == 3 and rowJ == 1):
 				keyDistances[i][j] = 2
-			else 
+			else :
 				keyDistances[i][j] = 1
-		else
+		else:
 			#Different fingers type these keys. Base off row of j
-			if rowJ == 1
+			if rowJ == 1:
 				#Top Row
 				keyDistances[i][j] = 1
-			elif rowJ == 3
+			elif rowJ == 3:
 				#Bot Row
 				keyDistances[i][j] = 1
-			else
+			else:
 				#Home Row
 				keyDistances[i][j] = 0
  
