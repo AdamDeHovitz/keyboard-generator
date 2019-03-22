@@ -2,3 +2,46 @@
 ['q', 'h', 'g', 'z', 'b', 'v', 'n', 'a', 'c']
 ['i', 't', 's', 'e', 'm', 'w', 'f']
 572165
+
+
+
+type 2:
+['d', 'x', 'f', 's', 'o', 't', 'e', 'w', 'h', 'k', 'm', 'a', 'y', 'g', 'z', 'i', 'p', 'b', 'r', 'j', 'n', 'v', 'l', 'q', 'u', 'c']
+ Temperature        Energy    Accept   Improve     Elapsed   Remaining
+['b', 'f', 'c', 'g', 'l', 'u', 'o', 'y', 'k', 'q'] 0:00:37     0:00:00
+['n', 's', 'r', 'd', 't', 'a', 'e', 'i', 'h']
+['j', 'v', 'w', 'p', 'm', 'z', 'x']
+None
+1885001.4199999997
+adehovit:keyboard-generator adamdeho$ python main.py
+['k', 'x', 'b', 'p', 't', 'e', 'u', 'n', 'm', 'f', 'r', 'c', 'z', 'l', 'i', 'w', 'a', 'o', 'g', 'h', 'y', 'q', 's', 'j', 'v', 'd']
+ Temperature        Energy    Accept   Improve     Elapsed   Remaining
+['b', 'm', 'p', 'r', 'l', 'g', 'a', 'k', 'y', 'j'] 0:00:36     0:00:00
+['n', 's', 't', 'h', 'd', 'e', 'o', 'u', 'i']
+['x', 'w', 'v', 'c', 'f', 'q', 'z']
+None
+1873908.199999999
+adehovit:keyboard-generator adamdeho$ python main.py
+['b', 'x', 't', 'f', 'u', 'q', 'i', 'z', 'k', 'l', 'v', 'y', 's', 'e', 'p', 'o', 'w', 'd', 'c', 'j', 'a', 'm', 'r', 'n', 'h', 'g']
+ Temperature        Energy    Accept   Improve     Elapsed   Remaining
+['q', 'b', 'g', 'p', 'u', 'r', 'l', 'c', 'f', 'w'] 0:00:37     0:00:00
+['h', 'a', 'o', 'e', 'i', 'd', 't', 's', 'n']
+['j', 'z', 'x', 'k', 'y', 'v', 'm']
+None
+2010978.879999999
+adehovit:keyboard-generator adamdeho$ python main.py
+['u', 'v', 'm', 'h', 'c', 'x', 'k', 'r', 'b', 'n', 'f', 'j', 'l', 'e', 'g', 'z', 'y', 'q', 't', 'i', 'a', 'o', 'w', 's', 'd', 'p']
+ Temperature        Energy    Accept   Improve     Elapsed   Remaining
+['x', 'k', 'p', 'g', 'i', 'l', 'n', 'f', 'c', 'w'] 0:00:36     0:00:00
+['u', 'a', 'd', 'o', 'e', 'h', 'r', 't', 's']
+['j', 'q', 'b', 'z', 'y', 'v', 'm']
+None
+1998192.1799999988
+adehovit:keyboard-generator adamdeho$ python main.py
+['t', 'e', 's', 'd', 'j', 'g', 'z', 'i', 'b', 'n', 'c', 'l', 'a', 'p', 'o', 'w', 'v', 'r', 'h', 'x', 'm', 'y', 'k', 'q', 'u', 'f']
+ Temperature        Energy    Accept   Improve     Elapsed   Remaining
+['q', 'x', 'p', 'u', 'g', 'n', 'l', 'f', 'c', 'w'] 0:00:40     0:00:00
+['a', 'o', 'd', 'i', 'e', 'h', 'r', 't', 's']
+['j', 'z', 'b', 'k', 'y', 'm', 'v']
+None
+2003101.3099999982

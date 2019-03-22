@@ -7,6 +7,7 @@ import keyboardArray as k
 
 freq_map = f.make_freq()
 alphabet = "abcdefghijklmnopqrstuvwxzy"
+key_distances = k.key_distances(1);
 
 class KeyboardProblem(Annealer):
     """Test annealer with keyboard problem."""
@@ -43,7 +44,7 @@ def generate_random_layout():
 
 def key_pair_cost(key_a, idx_a, key_b, idx_b):
     frequency = freq_map[1][str(key_a)+key_b]    #freq_map(key_a, key_b)
-    keying_time = k.keyDistances[idx_a][idx_b]
+    keying_time = key_distances[idx_a][idx_b]
     return frequency * keying_time
 
 def cost(layout):
@@ -73,3 +74,4 @@ def main():
     print(display_keyboard(state))
     print(e)
     return state
+main()
