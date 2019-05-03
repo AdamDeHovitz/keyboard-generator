@@ -8,41 +8,41 @@ for i in range(10, 19):
 	keys[i].row = 2
 for i in range(19, 26):
 	keys[i].row = 3
-keys[0].finger = 1 #q
+keys[0].finger = 1  #QWERTY q
 keys[10].finger = 1 #a
 keys[19].finger = 1 #z
 
-keys[1].finger = 2 #w
+keys[1].finger = 2  #w
 keys[11].finger = 2 #s
 keys[20].finger = 2 #x
 
-keys[2].finger = 3 #e
+keys[2].finger = 3 	#e
 keys[12].finger = 3 #d
 keys[21].finger = 3 #c
 
-keys[3].finger = 4 #r
+keys[3].finger = 4 	#r
 keys[13].finger = 4 #f
 keys[22].finger = 4 #v
 
-keys[4].finger = 4 #t
+keys[4].finger = 4 	#t
 keys[14].finger = 4 #g
 keys[23].finger = 4 #b
 
-keys[5].finger = 5 #y
+keys[5].finger = 5 	#y
 keys[15].finger = 5 #h
 keys[24].finger = 5 #n
 
-keys[6].finger = 5 #u
+keys[6].finger = 5 	#u
 keys[16].finger = 5 #j
 keys[25].finger = 5 #m
 
-keys[7].finger = 6 #i
-keys[17].finger = 6 #
+keys[7].finger = 6 	#i
+keys[17].finger = 6 #k
 
-keys[8].finger = 7 #o
+keys[8].finger = 7 	#o
 keys[18].finger = 7 #l
 
-keys[9].finger = 8 #p
+keys[9].finger = 8 	#p
 
 def key_distances(num):
 	keyDistances = [[] for _ in range(26)]
