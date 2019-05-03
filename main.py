@@ -2,6 +2,7 @@ import random
 from simanneal import Annealer
 import frequency_generator as f
 import keyboardArray as k
+import time
 
 
 
@@ -65,13 +66,36 @@ def display_keyboard(layout):
 
 def main():
     init_state = generate_random_layout()
-    print(init_state)
-    tsp = KeyboardProblem(init_state)
-    tsp.steps = 100000
-    # since our state is just a list, slice is the fastest way to copy
-    tsp.copy_strategy = "slice"
-    state, e = tsp.anneal()
-    print(display_keyboard(state))
-    print(e)
+
+    t_end = time.time() + 60 * 20
+    min_e = -1
+    min_state = 0
+    e_2 = -1
+    e_3 = -1
+    s_2 = 0
+    s_3 = 0
+    while time.time() < t_end:
+        tsp = KeyboardProblem(init_state)
+        tsp.steps = 100000
+        # since our state is just a list, slice is the fastest way to copy
+        tsp.copy_strategy = "slice"
+        state, e = tsp.anneal()
+        if (min_e == -1 or e < min_e):
+            s_3 = s_2
+            s_2 = min_state
+            min_state = state
+            e_3 = e_2
+            e_2 = min_e
+            min_e = e
+
+    print("best")
+    print(display_keyboard(min_state))
+    print(min_e)
+    print("second")
+    print(display_keyboard(s_2))
+    print(e_2)
+    print("third")
+    print(display_keyboard(s_3))
+    print(e_3)
     return state
 main()
