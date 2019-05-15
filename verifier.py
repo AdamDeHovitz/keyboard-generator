@@ -5,7 +5,7 @@ with open('corpora/great_expectations.txt') as g:
 	for line in g:
 		for i in range(len(line)-1):
 			if line[i].isalpha() and line[i+1].isalpha():
-				pair = (line[i], line[i+1])
+				pair = (line[i].lower(), line[i+1].lower())
 				s.add(pair)
 
 def verify(pairs):
@@ -17,7 +17,7 @@ if __name__ == "__main__":
 	with open(f) as f:
 		for line in f:
 			for i in range(len(line)-1):
-				pair = (line[i], line[i+1])
+				pair = (line[i].lower(), line[i+1].lower())
 				if pair in s:
 					s.remove(pair)
 			if len(s) == 0:
