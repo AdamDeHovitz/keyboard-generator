@@ -1,5 +1,5 @@
-from key_timer import letters
 s = set()
+letters = 'qwertyuiopasdfghjklzxcvbnm'
 
 with open('corpora/great_expectations.txt') as g:
 	for line in g:
