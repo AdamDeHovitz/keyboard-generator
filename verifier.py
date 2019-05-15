@@ -4,8 +4,9 @@ s = set()
 with open('corpora/great_expectations.txt') as g:
 	for line in g:
 		for i in range(len(line)-1):
-			pair = (line[i], line[i+1])
-			s.add(pair)
+			if line[i].isalpha() and line[i+1].isalpha():
+				pair = (line[i], line[i+1])
+				s.add(pair)
 
 def verify(pairs):
 	return set(pairs) == s
