@@ -54,6 +54,7 @@ def json_convert(deltas):
 def save_deltas(json_dict, file_path):
   with open(file_path, 'a+') as f:
     f.write(json_dict)
+    f.write('\n')
     print("Saved!")
 
 if __name__ == "__main__":
