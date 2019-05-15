@@ -2,6 +2,14 @@ import readchar
 from time import monotonic_ns as time
 from collections import defaultdict
 
+letters = 'qwertyuiopasdfghjklzxcvbnm'
+converter = {}
+for i, letter in enumerate(letters):
+  converter[letter] = i
+
+def convert(letter):
+  return converter[letter]
+
 def record_characters(num):
   p = None
   count = 0
@@ -19,7 +27,6 @@ def record_characters(num):
 
 def print_averages(deltas):
   print('printing averages')
-  letters = 'qwertyuiopasdfghjklzxcvbnm'
   for l1 in letters:
     for l2 in letters:
       if (l1, l2) in deltas:
@@ -27,7 +34,9 @@ def print_averages(deltas):
         avg_sec = sum(times)/len(times)*(10**-9)
         print('{}, {}: {}'.format(l1, l2, avg_sec))
 
-print("How many characters would you like to record?")
-num = int(input())
-print('Ok, begin typing!')
-print_averages(record_characters(num))
+
+if __name__ == "__main__":
+  print("How many characters would you like to record?")
+  num = int(input())
+  print('Ok, begin typing!')
+  print_averages(record_characters(num))
