@@ -1,12 +1,9 @@
 s = set()
 letters = 'qwertyuiopasdfghjklzxcvbnm'
 
-with open('corpora/great_expectations.txt') as g:
-	for line in g:
-		for i in range(len(line)-1):
-			if line[i].isalpha() and line[i+1].isalpha():
-				pair = (line[i].lower(), line[i+1].lower())
-				s.add(pair)
+for l1 in letters:
+	for l2 in letters:
+		s.add((l1, l2))
 
 def verify(pairs):
 	return set(pairs) == s
@@ -37,4 +34,5 @@ if __name__ == "__main__":
 				print('Corpus has all pairs')
 				exit()
 	print('Corpus does not have all pairs, this is what\'s missing: ')
+	print(len(s))
 	print(s)
