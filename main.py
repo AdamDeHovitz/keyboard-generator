@@ -51,8 +51,13 @@ def key_pair_cost(key_a, idx_a, key_b, idx_b):
 def get_loaded_time(idx_a, idx_b):
     global times_dict
     if times_dict is None:
+        times_dict = {}
         with open('times.txt') as times_file:
-            times_dict = json.loads(times_file.read())
+            times_dicts = []
+            for l in times_file:
+                times_dicts.append(json.loads(l))
+            for key in times_dicts[0].keys():
+                times_dict[key] = sum([x[key] for x in times_dicts])/len(times_dicts)
     key = str(idx_a)+','+str(idx_b)
     if key in times_dict:
         return times_dict[key]
