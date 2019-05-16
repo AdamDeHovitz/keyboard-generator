@@ -3,12 +3,12 @@ from simanneal import Annealer
 import frequency_generator as f
 import keyboardArray as k
 import time
-
-
+import json
 
 freq_map = f.make_freq()
 alphabet = "abcdefghijklmnopqrstuvwxzy"
-key_distances = k.key_distances(1);
+key_distances = k.key_distances(1)
+times_dict = None
 
 class KeyboardProblem(Annealer):
     """Test annealer with keyboard problem."""
@@ -48,12 +48,16 @@ def key_pair_cost(key_a, idx_a, key_b, idx_b):
     keying_time = key_distances[idx_a][idx_b]
     return frequency * keying_time
 
-times_dict = None
 def get_loaded_time(idx_a, idx_b):
+    global times_dict
     if times_dict is None:
         with open('times.txt') as times_file:
             times_dict = json.loads(times_file.read())
-    return times_dict[str(idx_a)+','+str(idx_b)]
+    key = str(idx_a)+','+str(idx_b)
+    if key in times_dict:
+        return times_dict[key]
+    print("Error finding date for key: " + key)
+    return 1
 
 # just switch to key pair cost 2 when you have enough recorded times
 def key_pair_cost2(key_a, idx_a, key_b, idx_b):
@@ -65,7 +69,7 @@ def cost(layout):
     total_cost = 0;
     for idx_a, key_a in enumerate(layout):
         for idx_b, key_b in enumerate(layout):
-            total_cost += key_pair_cost(key_a, idx_a, key_b, idx_b)
+            total_cost += key_pair_cost2(key_a, idx_a, key_b, idx_b)
     return total_cost
 
 
