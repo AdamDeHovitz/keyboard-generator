@@ -22,7 +22,7 @@ def record_words(file_path):
       success = False
       while success is False:
         failures += 1
-        if failures > 5:
+        if failures > 10:
           exit()
         print(word)
         typed = ''
@@ -94,6 +94,5 @@ if __name__ == "__main__":
   #print_averages(record_characters(num))
   deltas = record_words(corpus_path)
   if not verify(deltas.keys()):
-    print('Corpus does not have all pairs. Exiting.')
-    exit()
+    print('Corpus does not have all pairs. ')
   save_deltas(json_convert(scale(deltas)), file_path)

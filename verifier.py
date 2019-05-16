@@ -6,6 +6,8 @@ for l1 in letters:
 		s.add((l1, l2))
 
 def verify(pairs):
+	if set(pairs) != s:
+		print(s - set(pairs))
 	return set(pairs) == s
 
 def verify_with_missing(pairs):
