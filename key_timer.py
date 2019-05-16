@@ -6,10 +6,39 @@ from verifier import verify, letters
 
 converter = {}
 for i, letter in enumerate(letters):
-  converter[letter] = i
+  converter[letter] = str(i)
 
 def convert(letter):
   return converter[letter]
+
+def record_words(file_path):
+  p = None
+  count = 0
+  c_time = None
+  deltas = defaultdict(list)
+  with open(file_path) as f:
+    for word in f.read().split(' '):
+      failures = 0
+      success = False
+      while success is False:
+        failures += 1
+        if failures > 5:
+          exit()
+        print(word)
+        typed = ''
+        while len(typed) < len(word):
+          c = readchar.readchar()
+          if not c.isalpha():
+            break
+          typed += c
+          p_time = c_time
+          c_time = time()
+          if p_time is not None:  
+            deltas[(p, c)].append(c_time - p_time)
+          p = c
+        if typed == word:
+          success = True
+  return deltas
 
 def record_characters(num):
   p = None
@@ -48,7 +77,7 @@ def scale(deltas):
 def json_convert(deltas):
   d = {}
   for (i, j), k in deltas.items():
-    d[i+','+j] = k
+    d[convert(i)+','+convert(j)] = k
   return json.dumps(d)
 
 def save_deltas(json_dict, file_path):
@@ -58,13 +87,11 @@ def save_deltas(json_dict, file_path):
     print("Saved!")
 
 if __name__ == "__main__":
-  print("Where would you like to save your times? ")
-  file_path = input()
-  print("How many characters would you like to record?")
-  num = int(input())
-  print('Ok, begin typing!')
+  file_path = 'times.txt'
+  corpus_path = 'corpora/timer_corpus.txt'
+  print('Type the following words, to exit press enter, and if u fuck up press enter:')
   #print_averages(record_characters(num))
-  deltas = record_characters(num)
+  deltas = record_words(corpus_path)
   if not verify(deltas.keys()):
     print('Corpus does not have all pairs. Exiting.')
     exit()
