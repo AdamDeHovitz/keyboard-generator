@@ -26,6 +26,7 @@ def record_words(file_path):
           exit()
         print(word)
         typed = ''
+        c_time = None
         while len(typed) < len(word):
           c = readchar.readchar()
           if not c.isalpha():
