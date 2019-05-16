@@ -67,7 +67,7 @@ def get_loaded_time(idx_a, idx_b):
 # just switch to key pair cost 2 when you have enough recorded times
 def key_pair_cost2(key_a, idx_a, key_b, idx_b):
     frequency = freq_map[1][str(key_a)+key_b]    #freq_map(key_a, key_b)
-    keying_time = get_loaded_time(idx_a, idx_b)
+    keying_time = 1000*get_loaded_time(idx_a, idx_b) + key_distances[idx_a][idx_b]
     return frequency * keying_time
 
 def cost(layout):
@@ -96,9 +96,9 @@ def main():
     e_3 = -1
     s_2 = 0
     s_3 = 0
-    while time.time() < t_end:
+    for _ in range(3):
         tsp = KeyboardProblem(init_state)
-        tsp.steps = 100000
+        tsp.steps = 150000
         # since our state is just a list, slice is the fastest way to copy
         tsp.copy_strategy = "slice"
         state, e = tsp.anneal()
